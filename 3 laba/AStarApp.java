@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
 /**
  * A simple Swing application to demonstrate the A* pathfinding algorithm.  The
  * user is presented with a map, containing a start and end location.  The user
@@ -23,7 +22,6 @@ public class AStarApp {
     
     /** The location where the path is supposed to finish. **/
     private Location finishLoc;
-    
     /**
      * This is a 2D array of UI components that provide display and manipulation
      * of the cells in the map.
