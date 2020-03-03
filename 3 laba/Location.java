@@ -10,10 +10,6 @@ public class Location
     /** Y coordinate of this location. **/
     public int yCoord;
 
-    public int hashCode() {
-        int result = 111 * xCoord + 222 * yCoord + 37;
-        return result;
-    }
 
     /** Creates a new location with the specified integer coordinates. **/
     public Location(int x, int y)
@@ -25,18 +21,34 @@ public class Location
     /** Creates a new location with coordinates (0, 0). **/
     public Location()
     {
-        this.xCoord = 0;
-        this.yCoord = 0;
+        this(0, 0);
+    }
+    
+    /** Compares this Location to another. **/
+    public boolean equals(Object obj) {
+        
+        // Is obj a Location?
+        if (obj instanceof Location) {
+            
+            // Cast another object to Location type,
+            // then compare.  Return true if equal.
+            Location other = (Location) obj;
+            if (xCoord == other.xCoord && yCoord == other.yCoord) {
+                return true;
+            }
+        }
+        
+        // If we got here then they're not equal.  Return false. 
+        return false;
     }
 
-
-    public boolean equals(Location ex) {
-        System.out.printf("%s %s %s; %s %s %s ", ex.hashCode(), ex.xCoord, ex.yCoord, hashCode(), xCoord, yCoord);
-        if (ex.xCoord == xCoord && ex.yCoord == yCoord) {
-            System.out.println("Equals!");
-            return true;
-        }
-        System.out.println("not equal!");
-        return false;
+    /** Provides a hashCode for each Location. **/
+    public int hashCode() {
+        int result = 17; // Some prime value
+        
+        // Use another prime value to comnbine
+        result = 37 * result + xCoord;
+        result = 37 * result + yCoord;
+        return result;
     }
 }
