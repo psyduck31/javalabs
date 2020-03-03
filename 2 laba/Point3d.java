@@ -1,48 +1,30 @@
-public class Point3d {
-	private double X; private double Y; private double Z;
-
+public class Point3d extends Point2d {
+	//private double x; private double Y; private double Z;
+	private double zCoord;
 
 	public Point3d(double x, double y, double z) {
-		X = x; Y = y; Z = z;
+		super(x, y);
+		this.zCoord = z;
 	}
 
 
 	public Point3d() {
-		this(0,0,0);
-	}
-
-
-	public double getX() {
-		return X;
-	}
-
-
-	public double getY() {
-		return Y;
+		super();
+		this.zCoord = 0;
 	}
 
 
 	public double getZ() {
-		return Z;
-	}
-
-
-	public void setX(double value) {
-		X = value;
-	}
-
-
-	public void setY(double value) {
-		Y = value;
+		return zCoord;
 	}
 
 
 	public void setZ(double value) {
-		Z = value;
+		zCoord = value;
 	}
 
 
 	public double distanceTo(Point3d ex) {
-		return Math.abs(Math.sqrt(Math.pow(X-ex.getX(), 2) + Math.pow(Y-ex.getY(), 2) + Math.pow(Z-ex.getZ(), 2)));
+		return Math.abs(Math.sqrt(Math.pow(getX()-ex.getX(), 2) + Math.pow(getY()-ex.getY(), 2) + Math.pow(zCoord-ex.getZ(), 2)));
 	}
 }
